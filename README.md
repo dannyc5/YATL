@@ -3,7 +3,10 @@
 Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.com/danielchangNYC/YATL)
 
 ## Setup
-- Setting up Data
+
+Changes are already included in master, but if you want to reference the steps, check out [testing_setup.md](https://github.com/danielchangNYC/YATL/blob/master/testing_setup.md) or the second commit.
+
+## Setting up Data for tests
   - Fixtures
     - YAML file for preset, hard-coded sample data you can call in your tests
     - PROS: Fast
@@ -50,6 +53,19 @@ Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.c
   - **As a** user, **I need to** create a to-do **so that** I can keep track of my actions for the day.
   - **As a** user, **I need to** mark a to-do as finished **so that** I can quickly view what else needs to get done.
 
+**Check out the [Pivotal Tracker](https://www.pivotaltracker.com/n/projects/1063890) for this repo**
+
+If that doesn't work, here are a few user stories you can work on. We'll go through the first one together as an example.
+
+- As a user, I need to create a problem so that I can hide my real problems.
+  - Solution: Branch Iteration1
+- As a user, I need to delete problems so that I can pretend I forgot.
+  - Solution: Branch Iteration2
+- As a user, I need to edit a problem so that I can turn a situation into whatever makes the most sense to my erratic heart at the time.
+  - Solution: Branch Iteration3
+- As a user, I need to mark a problem as finished so that I can feel a fleeting sense of security before what's bound to happen later: more problems.
+- As a user, I need a button to generate problems so that I can close the work-on-problem/create-a-problem ratio.
+
 ## Cucumber Test (a type of Acceptance Test)
 - Compare: Feature test (w/o cucumber) and Acceptance test (w cucumber)
 - 3 A's
@@ -64,11 +80,11 @@ Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.c
 ## Controller Tests (a type of Functional Test)
 - What do we put in a controller test? => What is the purpose of a controller?
   - Assign values (`@user = User.find(params[:id])`)
+  - Save data to the database
   - Render
   - Redirect
 
 ## Model Tests (a type of Unit Test)
-- The Principles
 - Test one thing at a time
   - Good: "it 'generates a Chat between two users'"
   - Good: "it 'marks a lesson as finished'"
@@ -96,7 +112,7 @@ Directions
 - cucumber tags
   - Write `@tag` above any `Scenario`s, then type `cucumber -t @tag` to run any tagged cukes.
   - Write `@javascript` to run a `Scenario` using the `selenium` web-driver.
-- Use Mocks and Stubs
+- Use Mocks and Stubs. NOTE: This section is a work in progress.
   - **Stubs** define the return value of a method.
     - `scraper.stub(:scrape_page).with("<html>...</html>")`
     - OR: `scraper.stub(:scrape_page) {"<html>...</html>"}`
@@ -106,9 +122,7 @@ Directions
   - **Used Together**
     - `allow(scraper).to receive(:scrape_page).and_return("<html>...</html>")`
     - Shorter: `allow(scraper).to receive(:scrape_page) { "<html>...</html>" }`
-- Use `database-cleaner` gem to make sure your test data is pristine before running each test
-- Use `shoulda-matchers` for a useful library of rspec matchers
-- Use `faker` for more realistic test data
+- **DRY**: Use `let` and `let!` statements to `Arrange` data when possible; use `before :each` blocks to `Act` when possible
 
 ## Recommended Resources
 - Highly-Recommended Reading: Everyday Rails Testing with RSpec, by Aaron Sumner
