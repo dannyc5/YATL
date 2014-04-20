@@ -1,5 +1,10 @@
 h1 #{@problems.count} Problems
 
+.add_problem
+  = form_for Problem.new, method: :post do |f|
+    = f.text_field :message, placeholder: 'Add a new problem', id: 'new_problem'
+    = f.submit 'Add Problem'
+
 .problems
   - if @problems.empty?
     .no-problem
