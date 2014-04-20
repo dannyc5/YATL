@@ -5,7 +5,7 @@ development:
   timeout: 5000
   encoding: unicode
 
-test: &test
+test:
   adapter: postgresql
   database: yatl_test
   pool: 5
@@ -25,6 +25,3 @@ production:
   pool: 5
   timeout: 5000
   encoding: unicode
-
-cucumber:
-  <<: *test

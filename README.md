@@ -3,7 +3,10 @@
 Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.com/danielchangNYC/YATL)
 
 ## Setup
-- Setting up Data
+
+Changes are already included in master, but if you want to reference the steps, check out [testing_setup.md](https://github.com/danielchangNYC/YATL/blob/master/testing_setup.md) or the second commit.
+
+## Setting up Data for tests
   - Fixtures
     - YAML file for preset, hard-coded sample data you can call in your tests
     - PROS: Fast
@@ -68,7 +71,6 @@ Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.c
   - Redirect
 
 ## Model Tests (a type of Unit Test)
-- The Principles
 - Test one thing at a time
   - Good: "it 'generates a Chat between two users'"
   - Good: "it 'marks a lesson as finished'"
@@ -106,9 +108,7 @@ Directions
   - **Used Together**
     - `allow(scraper).to receive(:scrape_page).and_return("<html>...</html>")`
     - Shorter: `allow(scraper).to receive(:scrape_page) { "<html>...</html>" }`
-- Use `database-cleaner` gem to make sure your test data is pristine before running each test
-- Use `shoulda-matchers` for a useful library of rspec matchers
-- Use `faker` for more realistic test data
+- **DRY**: Use `let` and `let!` statements to `Arrange` data when possible; use `before :each` blocks to `Act` when possible
 
 ## Recommended Resources
 - Highly-Recommended Reading: Everyday Rails Testing with RSpec, by Aaron Sumner
