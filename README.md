@@ -7,6 +7,7 @@ Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.c
 Changes are already included in master, but if you want to reference the steps, check out [testing_setup.md](https://github.com/danielchangNYC/YATL/blob/master/testing_setup.md) or the second commit.
 
 ## Setting up Data for tests
+
   - Fixtures
     - YAML file for preset, hard-coded sample data you can call in your tests
     - PROS: Fast
