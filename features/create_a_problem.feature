@@ -3,8 +3,8 @@ Feature: Manage Problems
   I need to create a problem
   So that I can hide my real problems.
 
-  Scenario:
+  Scenario: Create a problem
     Given I am on the problems page
-    When I click add problem
-    And I fill out a new problem
+    When I fill out a new problem
+    And I click add problem
     Then I should see the new problem
