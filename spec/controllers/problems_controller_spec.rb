@@ -2,34 +2,40 @@ require 'spec_helper'
 
 describe ProblemsController do
 
+  # ARRANGE: let! runs block statement before every test. Use let/let! for arrange.
   let!(:problem) { create(:problem) }
 
   describe 'POST #edit' do
-    it 'assigns the requested problem to @problem' do
+    # ACT: use before :each blocks to act.
+    before :each do
       get :edit, id: problem.id
+    end
+
+    it 'assigns the requested problem to @problem' do
+      # note: assigns here checks if @problem was assigned; non-instance vars in controller won't work.
       expect(assigns(:problem)).to eq problem
     end
 
     it 'renders the :edit template' do
-      get :edit, id: problem.id
       expect(response).to render_template :edit
     end
   end
 
   describe 'POST #update' do
+    before :each do
+      patch :update, id: problem.id, problem: attributes_for(:problem, message: "hello")
+    end
+
     it 'located the requested problem' do
-      patch :update, id: problem.id, problem: attributes_for(:problem)
       expect(assigns(:problem)).to eq problem
     end
 
     it 'changes problem attributes' do
-      patch :update, id: problem.id, problem: attributes_for(:problem, message: "hello")
       problem.reload
       expect(problem.message).to eq "hello"
     end
 
     it 'redirect to root_path' do
-      patch :update, id: problem.id, problem: attributes_for(:problem)
       expect(response).to redirect_to root_path
     end
   end
