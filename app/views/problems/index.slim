@@ -14,3 +14,4 @@ h1 #{@problems.count} Problems
     - @problems.each do |problem|
       li.problem
         = problem.message
+        = link_to "Delete", problem_path(problem), method: :delete
