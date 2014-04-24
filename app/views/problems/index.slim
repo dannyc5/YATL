@@ -1,0 +1,11 @@
+h1 #{@problems.count} Problems
+
+.problems
+  - if @problems.empty?
+    .no-problem
+      p No problem!
+  - else
+    ul
+    - @problems.each do |problem|
+      li.problem
+        = problem.message
