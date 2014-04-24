@@ -21,10 +21,26 @@ When(/^I click delete for a problem$/) do
   end
 end
 
+When(/^I click edit for a problem$/) do
+  within all(:css, ".problem").first do
+    click_link "Edit"
+  end
+end
+
+When(/^I edit the problem message$/) do
+  @new_message = Faker::Lorem.sentence
+  fill_in 'Edit Message', with: @new_message
+  click_on 'Save Message'
+end
+
 Then(/^I should see the new problem$/) do
   expect(page).to have_content @new_message
 end
 
 Then(/^I should not see the problem$/) do
   expect(page).not_to have_content @problem.message
+end
+
+Then(/^I should see the new message$/) do
+  step "I should see the new problem"
 end
