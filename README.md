@@ -1,6 +1,7 @@
 # Rails Testing Crash-Course: Notes
 
 Check out this repo at [https://github.com/danielchangNYC/YATL](https://github.com/danielchangNYC/YATL)
+Slides [here](https://docs.google.com/presentation/d/1a4WufMl5S_6gQ7c1PSK6t85ElWqgoNXUBmEEyc1A2nE/pub?start=true&loop=false&delayms=15000)
 
 ## Setup
 
